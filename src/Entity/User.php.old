@@ -1,0 +1,44 @@
+<?php
+/**
+ * Created by IntelliJ IDEA.
+ * User: Antho
+ * Date: 28/09/2018
+ * Time: 10:22
+ */
+
+namespace App\Entity;
+
+
+class User
+{
+    private $id;
+    private $email;
+    private $password;
+    private $firstname;
+    private $lastname;
+
+    public function setId(integer $id)
+    {
+        $this->id = $id;
+    }
+
+    public function setEmail(string $email)
+    {
+        $this->email = $email;
+    }
+
+    public function setPassword(string $password)
+    {
+        $this->password = $password;
+    }
+
+    public function setFirstname(string $firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    public function setLastname(string $lastname)
+    {
+        $this->lastname = $lastname;
+    }
+}

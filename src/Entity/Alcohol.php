@@ -1,58 +1,74 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: Antho
- * Date: 27/09/2018
- * Time: 14:13
- */
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 
-class Alcool
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\AlcoholRepository")
+ */
+class Alcohol
 {
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
     private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $type;
+
+    /**
+     * @ORM\Column(type="float")
+     */
     private $percentage;
 
-    public function setName(string $name)
-    {
-        $this->name = $name;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function setId(int $id)
-    {
-        $this->id = $id;
-    }
-
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setType(string $type)
+    public function getName(): ?string
     {
-        $this->type = $type;
+        return $this->name;
     }
 
-    public function getType()
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function setPercentage(float $percentage)
+    public function setType(string $type): self
     {
-        $this->percentage = $percentage;
+        $this->type = $type;
+
+        return $this;
     }
 
-    public function getPercentage()
+    public function getPercentage(): ?float
     {
         return $this->percentage;
+    }
+
+    public function setPercentage(float $percentage): self
+    {
+        $this->percentage = $percentage;
+
+        return $this;
     }
 }

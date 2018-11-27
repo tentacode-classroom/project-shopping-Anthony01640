@@ -1,0 +1,63 @@
+<?php
+/**
+ * Created by IntelliJ IDEA.
+ * User: Antho
+ * Date: 28/09/2018
+ * Time: 10:34
+ */
+
+namespace App\Repository;
+
+
+use App\Entity\Alcohol;
+
+class AlcoholRepository
+{
+    private $alcohols;
+
+    public function __construct()
+    {
+        $alcohol1=new Alcohol();
+        $alcohol1->setId(1);
+        $alcohol1->setName('JackDaniels');
+        $alcohol1->setType('Whisky');
+        $alcohol1->setPercentage(40,0);
+
+        $alcohol2=new Alcohol();
+        $alcohol2->setId(2);
+        $alcohol2->setName('Eristof');
+        $alcohol2->setType('Vodka');
+        $alcohol2->setPercentage(37,5);
+
+        $alcohol3=new Alcohol();
+        $alcohol3->setId(3);
+        $alcohol3->setName('MartiniBlanc');
+        $alcohol3->setType('Martini');
+        $alcohol3->setPercentage(16,0);
+
+        $this->alcohols = [
+            $alcohol1,
+            $alcohol2,
+            $alcohol3,
+        ];
+    }
+
+    public function findAll(): array
+    {
+        return $this->alcohols;
+    }
+
+    public function findOneById(int $id): Alcohol
+    {
+        $alcohol = null;
+        foreach($this->alcohols as $alcohol) {
+            if ($id == $alcohol->getId($id)) {
+                $item = $alcohol;
+                break ;
+            }
+        }
+        dump($id);
+        dump($alcohol->getId($id));
+        return $item;
+    }
+}
